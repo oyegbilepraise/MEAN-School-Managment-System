@@ -1,0 +1,88 @@
+<div class="cont bg-light shadow">
+    <div class="row p-5">
+        <div class="col-6">
+            <img src="/assets/img/caro5.png" alt="" class="w-75 mx-5">
+        </div>
+        <div class="col-6">
+            <p class="text-center text-3xl">Student Registration</p>
+            <form [formGroup]="userForm" (submit)='submitForm()'>
+                <div class="form">
+                    <div>
+                        <label for="">  Full Name</label>
+                        <input formControlName="fName" name="fName" type="fName" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Full Name">
+                        <div *ngIf='f.fName.touched && f.fName.invalid'>
+                            <small class="text-danger" *ngIf="f.fName.errors?.required">This field is required. </small><br />
+                        </div>
+                    </div>
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <div class="mt-3">
+                                <label for="">Gender</label>
+                                <select formControlName="gender" name="gender" class="form-control">
+                                    <option value="male"> Male </option>
+                                    <option value="Female"> Female</option>
+                                    <option value="Others"> Others </option>
+                                </select>
+                                <div *ngIf='f.gender.touched && f.gender.invalid'>
+                                    <small class="text-danger" *ngIf="f.gender.errors?.required">This field is required. </small><br />
+                                </div>  
+                            </div>
+            
+                            <div class="mt-3">
+                                <label for="">Date of Birth</label>
+                                <input formControlName="date" name="date" type="date" autocomplete="email" required class="appearance-none mx-3 rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="">
+                                <div *ngIf='f.date.touched && f.date.invalid'>
+                                    <small class="text-danger" *ngIf="f.date.errors?.required">This field is required. </small><br />
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <label for="">Email</label>
+                                <input formControlName="email" name="email" type="email" autocomplete="email" required  class="appearance-none mx-4 rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="email...">
+                                <div *ngIf='f.email.touched && f.email.invalid'>
+                                    <small class="text-danger" *ngIf="f.email.errors?.required">This field is required. </small><br />
+                                    <small class="text-danger" *ngIf="f.email.errors?.email">Input a Valid Email Address. </small><br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <div class="mt-3">
+                                <label for="">State</label>
+                                <input formControlName="state" name="state" required type="text" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="State... ">
+                                <div *ngIf='f.state.touched && f.state.invalid'>
+                                    <small class="text-danger" *ngIf="f.state.errors?.required">This field is required. </small><br />
+                                </div>
+                            </div>
+                            <div class="mt-3 mx-5">
+                                <label for="">Phone Number</label>
+                                <input formControlName="phoneNo" name="phoneNo" type="tel" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Phone number">
+                                <div *ngIf='f.phoneNo.touched && f.phoneNo.invalid'>
+                                    <small class="text-danger" *ngIf="f.phoneNo.errors?.required">This field is required. </small><br />
+                                    <small class="text-danger" *ngIf="f.phoneNo.errors?.minLength">Minimum of 11 character. </small><br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <label for="">Residential Address</label>
+                        <textarea formControlName="rAddress" name="rAddress" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300" placeholder="please input your residential address here..."></textarea>
+                        <div *ngIf='f.rAddress.touched && f.rAddress.invalid'>
+                            <small class="text-danger" *ngIf="f.rAddress.errors?.required">This field is required. </small><br />
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <label for="">Password:</label>
+                        <input formControlName="password" name="password" type="password" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="***********">
+                        <div *ngIf='f.password.touched && f.password.invalid'>
+                            <small class="text-danger" *ngIf="f.password.errors?.required">This field is required. </small>
+                            <small class="text-danger" *ngIf="f.password.errors?.minlength">Minimum of 8 characters </small>
+                            <br />
+                          </div>
+                    </div>
+                    <button [disabled]="userForm.invalid" type="submit" class="group relative w-full flex mt-3 justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

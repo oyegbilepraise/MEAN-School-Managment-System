@@ -1,0 +1,13 @@
+table{
+    border: 1px solid black;
+}
+
+.searchInput{
+    width: 80%;
+    border-color: black;
+    border-bottom: 2px;
+    outline: none;
+}
+.searchInput:focus{
+    outline: none;
+}
